@@ -1,0 +1,91 @@
+var getDateText = function(item, index) {
+  var text = '';
+  switch (index) {
+    case 0:
+      text = '今天';
+      break;
+    case 1:
+      text = '明天';
+      break;
+    case 2:
+      text = '后天';
+      break;
+    default:
+      break;
+  }
+  var dateText = item.date.split('-')[2] + "日 ";
+  if(index < 3) {
+    dateText = " " + text;
+  }
+  return dateText;
+}
+
+var lifeStyleTitle = function(type) {
+  switch (type) {
+    case 'comf':
+      return '舒适度指数';
+      break;
+    case 'cw':
+      return '洗车指数';
+      break;
+    case 'drsg':
+      return '穿衣指数';
+      break;
+    case 'flu':
+      return '感冒指数';
+      break;
+    case 'sport':
+      return '运动指数';
+      break;
+    case 'trav':
+      return '旅游指数';
+      break;
+    case 'uv':
+      return '紫外线指数';
+      break;
+    case 'air':
+      return '污染指数';
+      break;
+    default:
+      return '';
+      break;
+  }
+}
+
+var lifeIcon = function(type) {
+  switch (type) {
+    case 'comf':
+      return 'thermometer-empty';
+      break;
+    case 'cw':
+      return 'car';
+      break;
+    case 'drsg':
+      return 'user-secret';
+      break;
+    case 'flu':
+      return 'frown-o';
+      break;
+    case 'sport':
+      return 'child';
+      break;
+    case 'trav':
+      return 'plane';
+      break;
+    case 'uv':
+      return 'sun-o';
+      break;
+    case 'air':
+      return 'refresh';
+      break;
+    default:
+      return '';
+      break;
+  }
+}
+
+module.exports = {
+  getDateText: getDateText,
+  lifeStyleTitle: lifeStyleTitle,
+  lifeIcon: lifeIcon
+};

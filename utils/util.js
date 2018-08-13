@@ -203,74 +203,11 @@ const aqiFunc = (aqi) => {
   }
 }
 
-const lifeStyleTitle = (type) => {
-  switch (type) {
-    case 'comf':
-      return '舒适度指数';
-      break;
-    case 'cw':
-      return '洗车指数';
-      break;
-    case 'drsg':
-      return '穿衣指数';
-      break;
-    case 'flu':
-      return '感冒指数';
-      break;
-    case 'sport':
-      return '运动指数';
-      break;
-    case 'trav':
-      return '旅游指数';
-      break;
-    case 'uv':
-      return '紫外线指数';
-      break;
-    case 'air':
-      return '污染指数';
-      break;
-    default:
-      return '';
-      break;
-  }
-}
-
-const lifeIcon = (type) => {
-  switch (type) {
-    case 'comf':
-      return 'thermometer-empty';
-      break;
-    case 'cw':
-      return 'car';
-      break;
-    case 'drsg':
-      return 'user-secret';
-      break;
-    case 'flu':
-      return 'frown-o';
-      break;
-    case 'sport':
-      return 'child';
-      break;
-    case 'trav':
-      return 'plane';
-      break;
-    case 'uv':
-      return 'sun-o';
-      break;
-    case 'air':
-      return 'refresh';
-      break;
-    default:
-      return '';
-      break;
-  }
-}
+const imgBashPath = "http://ox6gixp8f.bkt.clouddn.com/";
 
 module.exports = {
   formatTime,
   weatherCodeToImg,
   aqiFunc,
-  lifeStyleTitle,
-  lifeIcon
+  imgBashPath
 }

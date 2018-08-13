@@ -1,4 +1,59 @@
 <!--index.wxml-->
-<view class="container">
-  
+<view class="container" style="background-image:url({{config.imgBashPath}}{{currentListKey==0?'bj.jpg':'dj2.jpg'}});">
+  <view class="navigator" >
+    <view style="width:50rpx;height:50rpx"></view>
+    <text class="title">{{allWeatherInfo.HeWeather6[0].basic.parent_city}} {{allWeatherInfo.HeWeather6[0].basic.location}}</text>
+    <image bindtap="openDrawer" src="../../image/menu.png" class="menu-icon"></image>
+  </view>
+  <scroll-view wx:if="{{!isLoading}}" scroll-y>
+    <view class="weather-all">
+      <text class="now-text">{{allWeatherInfo.HeWeather6[0].now.tmp}}℃</text>
+      <image class="now-img" src="https://cdn.heweather.com/cond_icon/{{allWeatherInfo.HeWeather6[0].now.cond_code}}.png" />
+      <text style="font-size:32rpx;color:white">{{allWeatherInfo.HeWeather6[0].now.cond_txt}}</text>
+      <view class="aqi-container">
+        <text class="aqi-text" style="margin-left:80rpx;">降水量：{{allWeatherInfo.HeWeather6[0].now.pcpn}} mm</text>
+        <text class="aqi-text" style="margin-right:80rpx;">{{allWeatherInfo.HeWeather6[0].now.wind_dir+'，'+allWeatherInfo.HeWeather6[0].now.wind_sc}}</text>
+      </view>
+      <view class="daily-weather-container">
+        <view class="daily-weather">
+          <text class="aqi-text">早晨</text>
+          <image class="common-img" src="https://cdn.heweather.com/cond_icon/{{allWeatherInfo.HeWeather6[0].daily_forecast[0].cond_code_d}}.png"/>
+            <text class="aqi-text" style="text-align:center">{{allWeatherInfo.HeWeather6[0].daily_forecast[0].cond_txt_d}}</text>
+        </view>
+        <view class="daily-weather" style="margin-left:30rpx">
+          <text class="aqi-text">傍晚</text>
+          <image class="common-img" src="https://cdn.heweather.com/cond_icon/{{allWeatherInfo.HeWeather6[0].daily_forecast[0].cond_code_n}}.png"/>
+          <text class="aqi-text" style="text-align:center">{{allWeatherInfo.HeWeather6[0].daily_forecast[0].cond_txt_n}}</text>
+        </view>
+      </view>
+      <wxs src="./index.wxs" module="forecast" />
+      <view class="daily-container" wx:for="{{allWeatherInfo.HeWeather6[0].daily_forecast}}" wx:key="unique">
+        <view class="daily">
+          <text class="aqi-text">{{forecast.getDateText(item, index)}}</text>
+        </view>
+        <view class="daily" style="align-items:center;justify-content:center" >
+          <text class="aqi-text">早</text>
+          <image class="common-img" src="https://cdn.heweather.com/cond_icon/{{item.cond_code_d}}.png"/>
+          <text> </text>
+          <text class="aqi-text"> 晚</text>
+          <image class="common-img" src="https://cdn.heweather.com/cond_icon/{{item.cond_code_n}}.png"/>
+        </view>
+        <view class="daily" style="justify-content:flex-end;">
+          <text class="aqi-text">{{item.tmp_min}}℃~{{item.tmp_max}}℃</text>
+        </view>
+      </view>
+      <view class="life-style-container">
+        <view wx:if="{{currentListKey==0 && allWeatherInfo.HeWeather6[0].lifestyle && allWeatherInfo.HeWeather6[0].lifestyle.length}}" style="display:flex;width:100vw;flex-wrap:wrap;margin:0rpx -30rpx">
+          <view wx:for="{{allWeatherInfo.HeWeather6[0].lifestyle}}" wx:key="unique">
+            <view bindtap="openModal(index)" class="life-style" style="border-left-width:2rpx;border-top-width:2rpx;">
+              <text style="font-size:26rpx;color:white">{{forecast.lifeStyleTitle(item.type)}}</text>
+              <text class="life-icon fa fa-{{forecast.lifeIcon(item.type)}}" ></text>
+              <text style="font-size:26rpx;color:white">{{item.brf}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view> 
+  <drawer id="drawer" weather-list="{{weatherInfoList}}" current-listIndex="{{currentListIndex}}" current-listKey="{{currentListKey}}" is-loading="{{isLoading}}" bind:getNewCity="getNewCity"></drawer>
 </view>
