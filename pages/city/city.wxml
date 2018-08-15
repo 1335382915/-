@@ -1,0 +1,18 @@
+<!--pages/city/city.wxml-->
+<scroll-view scroll-y style="background-image:url({{config.imgBashPath}}city1.jpg)">
+  <view class="city-list-wrap">
+    <navigator open-type="navigateBack" delta="1">
+      <view class="close-btn">
+        <text class="fa fa-times"></text>
+      </view>
+    </navigator>
+    <view wx:for="{{cityData}}" wx:key="unique" wx:for-index="kIndex">
+      <text class="city-title">{{item.value}}</text>
+      <view class="one-country">
+        <view wx:for="{{item.child}}" wx:for-index="cIndex" wx:key="unique" bindtap="selectCity" data-key="{{kIndex}}" data-child="{{cIndex}}" class="one-city" style="margin-right:{{(cIndex+1)%4?'50rpx':0}}">
+          <text style="font-size:30rpx;">{{item.value}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,12 +1,12 @@
 <!--components/drawer/drawer.wxml-->
-<view class = "x-drawer-container {{drawerHasShown ? 'x-drawer-active' : ''}}"  catchtouchmove="ture" >
+<view class = "x-drawer-container {{drawerHasShown ? 'x-drawer-active' : ''}}"  catchtouchmove="cancelMove" >
   <view class = "x-drawer-mask" bindtap = "closeDrawer" ></view>
   <view class = "x-drawer-view x-drawer-view-right" >
     <view style="height:100%;">
       <view style="padding: 10rpx 0;">
-        <text style="margin-left:30rpx;color:black;font-size:30rpx">更多</text>
+        <text style="margin-left:30rpx;color:black;font-size:30rpx" bindtap="getMoreCity">更多</text>
       </view>
-      <view style="display:flex;background-color:white;justify-content:center;flex-direction:column" wx:if="{{!isLoading}}">
+      <view style="display:flex;background-color:white;justify-content:center;flex-direction:column;margin-bottom:50rpx;" wx:if="{{!isLoading && drawerHasShown}}">
         <view class="single-items" data-key="0" data-child="2" bindtap="getNewCity" style="background-color:{{currentListIndex==2 && currentListKey==0?'#eeeeee':'white'}}">
           <view style="display:flex;align-items:center">
             <image src="https://cdn.heweather.com/cond_icon/{{weatherList[0].HeWeather6[0].now.cond_code}}.png" style="width:70rpx;height:70rpx"/>
@@ -39,6 +39,7 @@
           </view>
           <text style="color:black;font-size:28rpx;">{{weatherList[1].HeWeather6[0].now.tmp}}℃</text>
         </view>
+        <ec-canvas wx:if="{{!isLoading && drawerHasShown}}" id="echart" canvas-id="echart" ec="{{ ec }}"></ec-canvas> 
       </view>
     </view>
   </view>

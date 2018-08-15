@@ -7,10 +7,6 @@ const config = require("../../utils/util.js");
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isLoading: true,
     modalShow: false,
     currentIndex: 0,
@@ -25,7 +21,7 @@ Page({
     airInfo: {},
     allWeatherInfo: {},
     weatherInfoList: [],
-    config: config
+    config,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -39,9 +35,9 @@ Page({
     })
     this.initData();
   },
-  getNewCity: function(e) {
-    const keyIndex = e.detail.keyIndex;
-    const childIndex = e.detail.childIndex;
+  getNewCity: function(e, kIndex, cIndex) {
+    const keyIndex = e && e.detail ? e.detail.keyIndex : kIndex;
+    const childIndex = e && e.detail ? e.detail.childIndex : cIndex;
     this.setData({
       currentListIndex: childIndex,
       currentListKey: keyIndex,
@@ -73,35 +69,17 @@ Page({
     })
     this.getNewCity(keyIndex, childIndex)
   },
-  getTmp: function(daily) {
-    let higherTmp = [];
-    let lowerTmp = [];
-    daily.map(item => {
-      lowerTmp.push(item.tmp_min);
-      higherTmp.push(item.tmp_max);
-    });
-    return {
-      lowerTmp,
-      higherTmp
-    }
-  },
-  getDate: function(daily) {
-    let date = [];
-    daily.map((item, index) => {
-      if (index == 0) {
-        date.push('今天');
-      }
-      else if (index == 1) {
-        date.push('明天');
-      }
-      else if (index == 2) {
-        date.push('后天');
-      }
-      else {
-        date.push((item.date.split('-'))[2] + '日');
-      }
-    });
-    return date;
+  openModal: function(e) {
+    const currentIndex = e.currentTarget.dataset.index;
+    this.setData({
+      currentIndex
+    })
+    const activity = this.data.allWeatherInfo.HeWeather6[0].lifestyle;
+    wx.showModal({
+      title: config.lifeStyleTitle(activity[currentIndex].type),
+      content: activity[currentIndex].txt,
+      showCancel: false
+    })
   },
   openDrawer: function() {
     this.selectComponent("#drawer").openDrawer();

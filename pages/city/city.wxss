@@ -1,0 +1,50 @@
+/* pages/city/city.wxss */
+scroll-view {
+  background-size: cover;
+}
+
+scroll-view .city-list-wrap {
+  margin: 0 30rpx;
+}
+
+.city-list-wrap .close-btn {
+  width: 50rpx;
+  height: 50rpx;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-left: -10rpx;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.city-list-wrap .close-btn text {
+  color: white;
+}
+
+.city-list-wrap .city-title {
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+
+.city-list-wrap .one-country {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.city-list-wrap .one-country .one-city {
+  width: calc((100vw - 60rpx - 150rpx) / 4);
+  height: calc((100vw - 60rpx - 150rpx) / 8);
+  background-color: white;
+  margin-right: 50rpx;
+  margin-bottom: 50rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  line-height: calc((100vw - 60rpx - 150rpx) / 8);
+}

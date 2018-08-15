@@ -94,7 +94,7 @@ scroll-view {
 
 .life-style-container {
   width:calc(100vw - 60rpx);
-  margin: 40rpx 0rpx;
+  margin-top: 40rpx;
 }
 
 .life-style-container .life-style {

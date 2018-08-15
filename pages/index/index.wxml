@@ -45,7 +45,7 @@
       <view class="life-style-container">
         <view wx:if="{{currentListKey==0 && allWeatherInfo.HeWeather6[0].lifestyle && allWeatherInfo.HeWeather6[0].lifestyle.length}}" style="display:flex;width:100vw;flex-wrap:wrap;margin:0rpx -30rpx">
           <view wx:for="{{allWeatherInfo.HeWeather6[0].lifestyle}}" wx:key="unique">
-            <view bindtap="openModal(index)" class="life-style" style="border-left-width:2rpx;border-top-width:2rpx;">
+            <view bindtap="openModal" data-index="{{index}}" class="life-style" style="border-left-width:2rpx;border-top-width:2rpx;">
               <text style="font-size:26rpx;color:white">{{forecast.lifeStyleTitle(item.type)}}</text>
               <text class="life-icon fa fa-{{forecast.lifeIcon(item.type)}}" ></text>
               <text style="font-size:26rpx;color:white">{{item.brf}}</text>
@@ -54,6 +54,6 @@
         </view>
       </view>
     </view>
-  </scroll-view> 
-  <drawer id="drawer" weather-list="{{weatherInfoList}}" current-listIndex="{{currentListIndex}}" current-listKey="{{currentListKey}}" is-loading="{{isLoading}}" bind:getNewCity="getNewCity"></drawer>
+  </scroll-view>
+  <drawer id="drawer" weather-list="{{weatherInfoList}}" daily-weather="{{allWeatherInfo.HeWeather6[0].daily_forecast}}" current-listIndex="{{currentListIndex}}" current-listKey="{{currentListKey}}" is-loading="{{isLoading}}" bind:getNewCity="getNewCity"></drawer>
 </view>
