@@ -8,18 +8,8 @@ scroll-view .city-list-wrap {
 }
 
 .city-list-wrap .close-btn {
-  width: 50rpx;
-  height: 50rpx;
-  background-color: rgba(0, 0, 0, 0.8);
-  margin-left: -10rpx;
-  border-radius: 50rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20rpx;
-}
-
-.city-list-wrap .close-btn text {
+  font-size: 40rpx;
+  margin-top: 30rpx;
   color: white;
 }
 

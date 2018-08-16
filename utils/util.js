@@ -1,4 +1,4 @@
-const formatTime = date => {
+export const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -9,12 +9,12 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-const formatNumber = n => {
+export const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
 
-const weatherCodeToImg = (code) => {
+export const weatherCodeToImg = (code) => {
   switch (code) {
     case 100:
       return 'https://cdn.heweather.com/cond_icon/100.png';
@@ -180,7 +180,7 @@ const weatherCodeToImg = (code) => {
   }
 }
 
-const aqiFunc = (aqi) => {
+export const aqiFunc = (aqi) => {
   switch (true) {
     case (0 <= aqi && 50 >= aqi):
       return '优';
@@ -203,7 +203,7 @@ const aqiFunc = (aqi) => {
   }
 }
 
-const lifeStyleTitle = type => {
+export const lifeStyleTitle = type => {
   switch (type) {
     case 'comf':
       return '舒适度指数';
@@ -235,12 +235,4 @@ const lifeStyleTitle = type => {
   }
 }
 
-const imgBashPath = "http://ox6gixp8f.bkt.clouddn.com/";
-
-module.exports = {
-  formatTime,
-  weatherCodeToImg,
-  aqiFunc,
-  imgBashPath,
-  lifeStyleTitle
-}
+export const imgBashPath = "http://ox6gixp8f.bkt.clouddn.com/";

@@ -53,8 +53,22 @@
 .x-drawer-active .x-drawer-mask {
     opacity: 1;
 }
-    
-.single-items {
+
+.more-text {
+  margin-left: 30rpx;
+  color:black;
+  font-size: 30rpx;
+}    
+
+.single-items-container {
+  display: flex;
+  background-color:white;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 50rpx;
+}
+
+.single-items-container .single-items {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,6 +76,32 @@
   border-width: 0 0 2rpx 0;
   border-color: #eeeeee;
   border-style: solid;
+}
+
+.single-items-container .single-items .single-left {
+  display: flex;
+  align-items: center;
+}
+
+.single-left image {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.single-left .first-area-text {
+  color:black;
+  font-size: 28rpx;
+  display: block;
+}
+
+.single-left .second-area-text {
+  color:#666666;
+  font-size: 24rpx;
+}
+
+.single-right {
+  color:black;
+  font-size: 28rpx;
 }
 
 ec-canvas {

@@ -1,4 +1,4 @@
-const requestWeatherInfo = (self, key, value, callback) => {
+export const requestWeatherInfo = (self, key, value, callback) => {
   wx.request({
     url: `https://free-api.heweather.com/s6/weather/now?${key}=${value}&key=65ad7b5d9b934958b451f585aa83a505`,
     method: "GET",
@@ -13,7 +13,7 @@ const requestWeatherInfo = (self, key, value, callback) => {
   })
 } 
 
-const requestAirInfo = (self, key, value, callback) => {
+export const requestAirInfo = (self, key, value, callback) => {
   wx.request({
     url: `https://free-api.heweather.com/s6/air/now?${key}=${value}&key=65ad7b5d9b934958b451f585aa83a505`,
     method: "GET",
@@ -26,7 +26,7 @@ const requestAirInfo = (self, key, value, callback) => {
   })
 }
 
-const requestAllWeatherInfo = (self, key, value, callback) => {
+export const requestAllWeatherInfo = (self, key, value, callback) => {
   wx.request({
     url: `https://free-api.heweather.com/s6/weather?${key}=${value}&key=65ad7b5d9b934958b451f585aa83a505`,
     method: "GET",
@@ -38,10 +38,4 @@ const requestAllWeatherInfo = (self, key, value, callback) => {
       console.log(res);
     }
   })
-}
-
-module.exports = {
-  requestWeatherInfo,
-  requestAirInfo,
-  requestAllWeatherInfo
 }

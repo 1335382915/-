@@ -23,8 +23,8 @@ view, scroll-view {
 }
 
 .menu-icon {
-  width: 50rpx;
-  height: 50rpx;
+  font-size: 40rpx;
+  color: white;
 }
 
 scroll-view {
@@ -46,9 +46,20 @@ scroll-view {
   margin-top: 40rpx;
 }
 
-.weather-all .now-img {
+.weather-all .now-img-wrap {
   width: 140rpx;
   height: 140rpx;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.weather-all .now-img-wrap .now-img {
+  width: 140rpx;
+  height: 140rpx;
+  filter: drop-shadow(140rpx 0 0 white);
+  position: relative;
+  left: -140rpx;
+  border-right: 140rpx solid transparent;
 }
 
 .weather-all .aqi-container {
@@ -63,9 +74,20 @@ scroll-view {
   color: white;
 }
 
-.common-img {
+.common-img-wrap {
   width: 60rpx;
   height: 60rpx;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.common-img-wrap .common-img {
+  width: 60rpx;
+  height: 60rpx;
+  filter: drop-shadow(60rpx 0 0 white);
+  position: relative;
+  left: -60rpx;
+  border-right: 60rpx solid transparent;
 }
 
 .daily-weather-container {
@@ -110,8 +132,20 @@ scroll-view {
   background-color: rgba(0,0,0,0.5);
 }
 
+.life-style-container .life-style-list {
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  margin: 0rpx -30rpx;
+}
+
 .life-style-container .life-icon {
   font-size: 50rpx;
   color:white;
   padding: 10rpx 0;
+}
+
+.life-style-container .life-text {
+  font-size: 26rpx;
+  color:white;
 }

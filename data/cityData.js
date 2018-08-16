@@ -1,4 +1,4 @@
-const cityData = module.exports = [
+export default [
   {
     key: 'CN101010100',
     value: '北京',

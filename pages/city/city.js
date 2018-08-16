@@ -1,6 +1,6 @@
 // pages/city/city.js
-const config = require("../../utils/util.js");
-const cityData = require("../../data/cityData");
+import * as config from "../../utils/util.js";
+import cityData from "../../data/cityData";
 
 Page({
   /**

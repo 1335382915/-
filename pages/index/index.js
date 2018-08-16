@@ -1,9 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp();
-const server = require("../../server/server");
-const cityData = require("../../data/cityData");
-const config = require("../../utils/util.js");
+import * as server from "../../server/server";
+import cityData from "../../data/cityData";
+import * as config from "../../utils/util.js";
 
 Page({
   data: {

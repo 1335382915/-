@@ -2,9 +2,7 @@
 <scroll-view scroll-y style="background-image:url({{config.imgBashPath}}city1.jpg)">
   <view class="city-list-wrap">
     <navigator open-type="navigateBack" delta="1">
-      <view class="close-btn">
-        <text class="fa fa-times"></text>
-      </view>
+      <text class="fa fa-times close-btn"></text>
     </navigator>
     <view wx:for="{{cityData}}" wx:key="unique" wx:for-index="kIndex">
       <text class="city-title">{{item.value}}</text>

@@ -77,6 +77,7 @@ Component({
       })
     },
     getTmp: function (daily) {
+      daily = daily.slice(0, 3);
       var higherTmp = [];
       var lowerTmp = [];
       daily.map(function (item) {
