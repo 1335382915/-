@@ -3,18 +3,14 @@
 const app = getApp();
 import * as server from "../../server/server";
 import cityData from "../../data/cityData";
-import * as config from "../../utils/util.js";
+import * as config from "../../utils/util";
 
 Page({
   data: {
     isLoading: true,
-    modalShow: false,
     currentIndex: 0,
-    isRefreshing: false,
-    drawerLockMode: 'unlocked',
     currentListIndex: 2,
     currentListKey: 0,
-    cityModalShow: false,
 
     nowWeather: {},
     nextWeather: {},
@@ -23,53 +19,29 @@ Page({
     weatherInfoList: [],
     config,
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onPullDownRefresh: function() {
-    this.setData({
-      isRefreshing: true
-    })
+  onPullDownRefresh() {
     this.initData();
   },
-  getNewCity: function(e, kIndex, cIndex) {
+  getNewCity(e, kIndex, cIndex) {
     const keyIndex = e && e.detail ? e.detail.keyIndex : kIndex;
     const childIndex = e && e.detail ? e.detail.childIndex : cIndex;
     this.setData({
       currentListIndex: childIndex,
       currentListKey: keyIndex,
-      drawerLockMode: "locked-closed",
-      //async
       isLoading: true,
-      drawerLockMode: "unlocked"
     })
     wx.showLoading({
       title: "正在加载",
     })
     server.requestAllWeatherInfo(this, "location", cityData[keyIndex].child[childIndex].key, () => {
       this.setData({
-        isLoading: false,
-        isRefreshing: false
+        isLoading: false
       })
       wx.hideLoading();
       this.closeDrawer();
     })
   },
-  openCityModal: function() {
-    this.setData({
-      cityModalShow: true
-    })
-  },
-  closeCityModal(keyIndex, childIndex) {
-    this.setData({
-      cityModalShow: false
-    })
-    this.getNewCity(keyIndex, childIndex)
-  },
-  openModal: function(e) {
+  openModal(e) {
     const currentIndex = e.currentTarget.dataset.index;
     this.setData({
       currentIndex
@@ -81,34 +53,28 @@ Page({
       showCancel: false
     })
   },
-  openDrawer: function() {
+  openDrawer() {
     this.selectComponent("#drawer").openDrawer();
   },
-  closeDrawer: function () {
+  closeDrawer() {
     this.selectComponent("#drawer").closeDrawer();
   },
-  initData: function() {
-    server.requestWeatherInfo(this, 'location', 'CN101010400', () => {
-      server.requestWeatherInfo(this, 'location', 'CN101010200', () => {
-        server.requestWeatherInfo(this, 'location', 'JP1850147', () => {
-          server.requestAllWeatherInfo(this, 'location', cityData[this.data.currentListKey].child[this.data.currentListIndex].key, () => {
-            // this.props.actions.requestAirInfo('location','beijing',()=>{
-            //
-            // })
+  initData() {
+    server.requestWeatherInfo(this, "location", "CN101010400", () => {
+      server.requestWeatherInfo(this, "location", "CN101010200", () => {
+        server.requestWeatherInfo(this, "location", "JP1850147", () => {
+          server.requestAllWeatherInfo(this, "location", cityData[this.data.currentListKey].child[this.data.currentListIndex].key, () => {
             this.setData({
-              isLoading: false,
-              isRefreshing: false
+              isLoading: false
             })
             wx.hideLoading();
             wx.stopPullDownRefresh();
-            console.log(this.data.config);
-            console.log(this.data.weatherInfoList)
           })
         })
       })
     })
   },
-  onLoad: function() {
+  onLoad() {
     wx.showLoading({
       title: "正在加载",
     })

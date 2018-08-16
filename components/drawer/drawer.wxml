@@ -1,13 +1,13 @@
 <!--components/drawer/drawer.wxml-->
-<view class = "x-drawer-container {{drawerHasShown ? 'x-drawer-active' : ''}}" catchtouchmove="cancelMove">
-  <view class = "x-drawer-mask" bindtap = "closeDrawer"></view>
-  <view class = "x-drawer-view x-drawer-view-right">
+<view class="x-drawer-container {{drawerHasShown?'x-drawer-active':''}}" catchtouchmove="cancelMove">
+  <view class="x-drawer-mask" bindtap = "closeDrawer"></view>
+  <view class="x-drawer-view x-drawer-view-right">
     <view style="height:100%;">
       <view style="padding:10rpx 0;">
         <text class="more-text" bindtap="getMoreCity">更多</text>
       </view>
-      <view class="single-items-container" wx:if="{{!isLoading && drawerHasShown}}">
-        <view class="single-items" data-key="0" data-child="2" bindtap="getNewCity" style="background-color:{{currentListIndex==2 && currentListKey==0?'#eeeeee':'white'}}">
+      <view class="single-items-container" wx:if="{{!isLoading&&drawerHasShown}}">
+        <view class="single-items" data-key="0" data-child="2" bindtap="getNewCity" style="background-color:{{currentListIndex==2&&currentListKey==0?'#eeeeee':'white'}}">
           <view class="single-left">
             <image src="https://cdn.heweather.com/cond_icon/{{weatherList[0].HeWeather6[0].now.cond_code}}.png"/>
             <view style="margin-left:20rpx">
@@ -18,7 +18,7 @@
           <text class="single-right">{{weatherList[0].HeWeather6[0].now.tmp}}℃</text>
         </view>
 
-        <view class="single-items" data-key="0" data-child="0" bindtap="getNewCity" style="background-color:{{currentListIndex==0 && currentListKey==0?'#eeeeee':'white'}}">
+        <view class="single-items" data-key="0" data-child="0" bindtap="getNewCity" style="background-color:{{currentListIndex==0&&currentListKey==0?'#eeeeee':'white'}}">
           <view class="single-left">
             <image src="https://cdn.heweather.com/cond_icon/{{weatherList[1].HeWeather6[0].now.cond_code}}.png"/>
             <view style="margin-left:20rpx">
@@ -26,10 +26,10 @@
               <text class="second-area-text">海淀</text>
             </view>
           </view>
-          <text class="single-right">{{weatherList[2].HeWeather6[0].now.tmp}}℃</text>
+          <text class="single-right">{{weatherList[1].HeWeather6[0].now.tmp}}℃</text>
         </view>
 
-        <view class="single-items" data-key="1" data-child="0" bindtap="getNewCity" style="background-color:{{currentListIndex==0 && currentListKey==1?'#eeeeee':'white'}}">
+        <view class="single-items" data-key="1" data-child="0" bindtap="getNewCity" style="background-color:{{currentListIndex==0&&currentListKey==1?'#eeeeee':'white'}}">
           <view class="single-left">
             <image src="https://cdn.heweather.com/cond_icon/{{weatherList[2].HeWeather6[0].now.cond_code}}.png"/>
             <view style="margin-left:20rpx">
@@ -37,9 +37,9 @@
               <text class="second-area-text">东京</text>
             </view>
           </view>
-          <text class="single-right">{{weatherList[1].HeWeather6[0].now.tmp}}℃</text>
+          <text class="single-right">{{weatherList[2].HeWeather6[0].now.tmp}}℃</text>
         </view>
-        <ec-canvas wx:if="{{!isLoading && drawerHasShown}}" id="echart" canvas-id="echart" ec="{{ec}}"></ec-canvas> 
+        <ec-canvas wx:if="{{!isLoading&&drawerHasShown}}" id="echart" canvas-id="echart" ec="{{ec}}"></ec-canvas> 
       </view>
     </view>
   </view>

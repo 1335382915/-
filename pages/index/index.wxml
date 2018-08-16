@@ -53,7 +53,7 @@
         </view>
       </view>
       <view class="life-style-container">
-        <view wx:if="{{currentListKey==0 && allWeatherInfo.HeWeather6[0].lifestyle && allWeatherInfo.HeWeather6[0].lifestyle.length}}" class="life-style-list">
+        <view wx:if="{{currentListKey==0&&allWeatherInfo.HeWeather6[0].lifestyle&&allWeatherInfo.HeWeather6[0].lifestyle.length}}" class="life-style-list">
           <view wx:for="{{allWeatherInfo.HeWeather6[0].lifestyle}}" wx:key="unique">
             <view bindtap="openModal" data-index="{{index}}" class="life-style" style="border-left-width:2rpx;border-top-width:2rpx;">
               <text class="life-text">{{forecast.lifeStyleTitle(item.type)}}</text>

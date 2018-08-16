@@ -1,5 +1,5 @@
 // pages/city/city.js
-import * as config from "../../utils/util.js";
+import * as config from "../../utils/util";
 import cityData from "../../data/cityData";
 
 Page({
@@ -10,14 +10,14 @@ Page({
     config,
     cityData
   },
-  onReady: function() {
+  onReady() {
     const pages = getCurrentPages();
     const currentPage = pages[0];
     setTimeout(() => {
       currentPage.closeDrawer();
     }, 500)
   },
-  selectCity: function(e) {
+  selectCity(e) {
     const keyIndex = e.currentTarget.dataset.key;
     const childIndex = e.currentTarget.dataset.child;
     const pages = getCurrentPages();
