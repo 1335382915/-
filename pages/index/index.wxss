@@ -57,8 +57,7 @@ scroll-view {
   width: 140rpx;
   height: 140rpx;
   filter: drop-shadow(140rpx 0 0 white);
-  position: relative;
-  left: -140rpx;
+  transform: translateX(-140rpx);
   border-right: 140rpx solid transparent;
 }
 
@@ -85,8 +84,7 @@ scroll-view {
   width: 60rpx;
   height: 60rpx;
   filter: drop-shadow(60rpx 0 0 white);
-  position: relative;
-  left: -60rpx;
+  transform: translateX(-60rpx);
   border-right: 60rpx solid transparent;
 }
 
