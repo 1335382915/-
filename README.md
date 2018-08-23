@@ -4,7 +4,6 @@
 ![小川天气](https://upload-images.jianshu.io/upload_images/1495096-6895c3ecc8731c6c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![首页](https://upload-images.jianshu.io/upload_images/1495096-6b52de2058465306.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![生活指数](https://upload-images.jianshu.io/upload_images/1495096-097faac85ddac982.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 ![导航](https://upload-images.jianshu.io/upload_images/1495096-fb080aab4403782b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![城市选择](https://upload-images.jianshu.io/upload_images/1495096-1239aa459b6252ae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
