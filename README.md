@@ -1,5 +1,5 @@
 # 小川天气
-微信小程序可以说是当下很火热的应用了。在好奇心的作用下，通读了一遍之后便开始上手撸了一个很简单的天气应用——小川天气。
+微信小程序可以说是当下很火热的应用了。在好奇心的作用下，通读了一遍文档之后便开始上手撸了一个很简单的天气应用——小川天气。
 
 ![小川天气](https://upload-images.jianshu.io/upload_images/1495096-6895c3ecc8731c6c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![首页](https://upload-images.jianshu.io/upload_images/1495096-6b52de2058465306.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
